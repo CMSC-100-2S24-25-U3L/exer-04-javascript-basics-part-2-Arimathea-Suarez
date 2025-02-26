@@ -6,6 +6,7 @@
 
 // Needed to import for the ES Module
 import { appendFileSync } from 'node:fs';
+import { type } from 'node:os';
 import { v4 as uuidv4 } from 'uuid';
 import validator from 'validator';
 
@@ -25,6 +26,31 @@ export function generateUniqueID(firstName, lastName) {
 }
 
 
+
+
+
+// The second function to add an account
+export function addAccount(accountData){
+    if(!Array.isArray(accountData) || accountData.length !==4){
+        return false;
+
+    }
+    
+    const [firstName, lastName, email, age] = accountData;
+
+
+    if(
+        typeof firstName !== "string" || firstName.trim() === "" ||
+        typeof lastName !== "string" || lastName.trim() ==== "" ||
+        typeof email !== "string" || email.trim() === "" ||
+        
+    )
+
+
+
+}
+
+
 try {
     appendFileSync('message.txt', 'data to append');
     console.log('The "data to append" was appended to file!'); // To notify that the file has been properly appended
@@ -39,3 +65,5 @@ try {
 // charAt - https://www.w3schools.com/java/ref_string_charat.asp
 // replace - https://www.w3schools.com/jsref/jsref_replace.asp
 // substring - https://www.w3schools.com/jsref/jsref_substring.asp
+// array - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array
+
