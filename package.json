@@ -1,0 +1,17 @@
+{
+  "name": "user-management",
+  "version": "1.0.0",
+  "description": "A simple user management system using Node.js ES Modules",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node test.js"
+  },
+  "dependencies": {
+    "uuid": "^9.0.1",
+    "validator": "^13.12.0"
+  },
+  "author": "Arimathea Charmille H. Suarez",
+  "license": "MIT",
+  "keywords": []
+}
