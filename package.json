@@ -13,5 +13,6 @@
   },
   "author": "Arimathea Charmille H. Suarez",
   "license": "MIT",
-  "keywords": []
+  "keywords": [],
+  "devDependencies": {}
 }

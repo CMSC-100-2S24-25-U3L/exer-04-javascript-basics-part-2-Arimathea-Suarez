@@ -30,33 +30,46 @@ export function generateUniqueID(firstName, lastName) {
 
 
 // The second function to add an account
-export function addAccount(accountData){
-    if(!Array.isArray(accountData) || accountData.length !==4){
+export function addAccount(accountData) {
+    if (!Array.isArray(accountData) || accountData.length !== 4) {
         return false;
 
     }
-    
+
     const [firstName, lastName, email, age] = accountData;
 
 
-    if(
+    if (
         typeof firstName !== "string" || firstName.trim() === "" ||
-        typeof lastName !== "string" || lastName.trim() ==== "" ||
+        typeof lastName !== "string" || lastName.trim() === "" ||
         typeof email !== "string" || email.trim() === "" ||
-        
-    )
+        !validator.isEmail(email) ||
+        typeof age !== "number" || age < 18
+    ) {
+
+        return false;
+    }
+
+    const uniqueID = generateUniqueID(firstName, lastName);
+    if (!uniqueID) {
+        return false;
+    }
+
+    const userData = `${firstName},${lastName},${email},${age},${uniqueID}\n`;
 
 
+    try {
+        appendFileSync('users.txt', userData, 'utf8');
+        return true;
+
+    } catch (err) {
+        return false;
+        /* Handle the error */
+    }
 
 }
 
 
-try {
-    appendFileSync('message.txt', 'data to append');
-    console.log('The "data to append" was appended to file!'); // To notify that the file has been properly appended
-} catch (err) {
-    /* Handle the error */
-}
 
 
 //References:
